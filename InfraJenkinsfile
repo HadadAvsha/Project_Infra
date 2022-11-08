@@ -52,7 +52,7 @@ pipeline {
     always {
         script{
         /* clean up our workspace */
-            cleanWs()
+            // cleanWs()
         } //EO script
     } //EO always
 
