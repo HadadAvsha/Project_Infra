@@ -49,13 +49,12 @@ pipeline {
 
   } //EO stages
   post {
-    always {
-        script{
-        /* clean up our workspace */
-            // cleanWs()
-            sh "end of pipeline"
-        } //EO script
-    } //EO always
+    // always {
+    //     script{
+    //     /* clean up our workspace */
+    //         // cleanWs()
+    //     } //EO script
+    // } //EO always
 
     failure {
         emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",

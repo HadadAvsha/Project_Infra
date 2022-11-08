@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-2"
+  region = "us-west-2"
 }
 
 terraform {
@@ -10,7 +10,7 @@ terraform {
     }
   }
   backend "s3" {
-    region = "us-east-2"
+    region = "us-west-2"
     bucket = "avsha-tf-state"
     key    = "tfstate"
   }
