@@ -53,6 +53,7 @@ pipeline {
         script{
         /* clean up our workspace */
             // cleanWs()
+            sh "end of pipeline"
         } //EO script
     } //EO always
 
