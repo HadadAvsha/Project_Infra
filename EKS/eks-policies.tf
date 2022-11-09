@@ -52,12 +52,23 @@ resource "aws_iam_role" "workernodes" {
   role    = aws_iam_role.workernodes.name
  }
 
-#  resource "aws_iam_role_policy_attachment" "EC2InstanceProfileForImageBuilderECRContainerBuilds" {
-#   policy_arn = "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilderECRContainerBuilds"
-#   role    = aws_iam_role.workernodes.name
-#  }
+ resource "aws_iam_role_policy_attachment" "EC2InstanceProfileForImageBuilderECRContainerBuilds" {
+  policy_arn = "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilderECRContainerBuilds"
+  role    = aws_iam_role.workernodes.name
+ }
  #access to ECR 
  resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   role    = aws_iam_role.workernodes.name
  }
+
+ resource "aws_iam_role_policy_attachment" "name" {
+   policy_arn = "arn:aws:iam::644435390668:policy/yoav-AmazonEKS_EBS_CSI_Driver_Policy"
+   role = aws_iam_role.workernodes.name
+ }
+
+  resource "aws_iam_role_policy_attachment" "name2" {
+   policy_arn = "arn:aws:iam::644435390668:policy/yoav-AmazonEKS_EBS_CSI_Driver_Policy"
+   role = aws_iam_role.eks_cluster.name
+ }
+ 
