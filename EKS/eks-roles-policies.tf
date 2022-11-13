@@ -62,12 +62,12 @@ resource "aws_iam_role" "workernodes" {
   role    = aws_iam_role.workernodes.name
  }
 
-#  resource "aws_iam_role_policy_attachment" "AmazonEKS_EBS_CSI_Driver_Policy_nodes" {
-#    policy_arn = "arn:aws:iam::644435390668:policy/Avsha-AmazonEKS_EBS_CSI_Driver_Policy"
-#    role = aws_iam_role.workernodes.name
-#  }
+ resource "aws_iam_role_policy_attachment" "AmazonEKS_EBS_CSI_Driver_Policy_nodes" {
+   policy_arn = "arn:aws:iam::644435390668:policy/Avsha-AmazonEKS_EBS_CSI_Driver_Policy"
+   role = aws_iam_role.workernodes.name
+ }
 
-#   resource "aws_iam_role_policy_attachment" "AmazonEKS_EBS_CSI_Driver_Policy_cluster" {
-#    policy_arn = "arn:aws:iam::644435390668:policy/Avsha-AmazonEKS_EBS_CSI_Driver_Policy"
-#    role = aws_iam_role.avsha-eks_cluster.name
-#  }
+  resource "aws_iam_role_policy_attachment" "AmazonEKS_EBS_CSI_Driver_Policy_cluster" {
+   policy_arn = "arn:aws:iam::644435390668:policy/Avsha-AmazonEKS_EBS_CSI_Driver_Policy"
+   role = aws_iam_role.avsha-eks_cluster.name
+ }
