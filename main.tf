@@ -5,3 +5,9 @@ module "EKS" {
     # private_subnet_cidrs = var.private_subnet_cidrs
     prefix = var.prefix
 }
+
+# module "Helm-charts" {
+#     source = "./Helm-charts"
+#     # cluster_name = output.cluster_name
+
+# }

@@ -1,6 +1,6 @@
 resource "aws_eks_cluster" "eks" {
  name = "${var.prefix}-cluster"
- role_arn = aws_iam_role.eks_cluster.arn
+ role_arn = aws_iam_role.avsha-eks_cluster.arn
  version = "1.23"
 
  vpc_config {
@@ -14,7 +14,7 @@ resource "aws_eks_cluster" "eks" {
  }
 
  depends_on = [
-  aws_iam_role.eks_cluster, aws_iam_role_policy_attachment.AmazonEKSClusterPolicy
+  aws_iam_role.avsha-eks_cluster, aws_iam_role_policy_attachment.AmazonEKSClusterPolicy
  ]
 }
 
@@ -46,6 +46,3 @@ resource "aws_eks_cluster" "eks" {
   ]
  }
 
-output "cluster_name" {
-  value = aws_eks_cluster.eks.name
-}

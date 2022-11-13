@@ -1,5 +1,5 @@
-resource "aws_iam_role" "eks_cluster" {
- name = "eks_cluster" 
+resource "aws_iam_role" "avsha-eks_cluster" {
+ name = "avsha-eks_cluster" 
  assume_role_policy = <<POLICY
  {
  "Version": "2012-10-17",
@@ -18,12 +18,12 @@ POLICY
 
 resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy" {
  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
- role    = aws_iam_role.eks_cluster.name
+ role    = aws_iam_role.avsha-eks_cluster.name
 }
 
 resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly-EKS" {
  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
- role    = aws_iam_role.eks_cluster.name
+ role    = aws_iam_role.avsha-eks_cluster.name
 }
 
 
@@ -62,13 +62,12 @@ resource "aws_iam_role" "workernodes" {
   role    = aws_iam_role.workernodes.name
  }
 
- resource "aws_iam_role_policy_attachment" "name" {
-   policy_arn = "arn:aws:iam::644435390668:policy/yoav-AmazonEKS_EBS_CSI_Driver_Policy"
-   role = aws_iam_role.workernodes.name
- }
+#  resource "aws_iam_role_policy_attachment" "AmazonEKS_EBS_CSI_Driver_Policy_nodes" {
+#    policy_arn = "arn:aws:iam::644435390668:policy/Avsha-AmazonEKS_EBS_CSI_Driver_Policy"
+#    role = aws_iam_role.workernodes.name
+#  }
 
-  resource "aws_iam_role_policy_attachment" "name2" {
-   policy_arn = "arn:aws:iam::644435390668:policy/yoav-AmazonEKS_EBS_CSI_Driver_Policy"
-   role = aws_iam_role.eks_cluster.name
- }
- 
+#   resource "aws_iam_role_policy_attachment" "AmazonEKS_EBS_CSI_Driver_Policy_cluster" {
+#    policy_arn = "arn:aws:iam::644435390668:policy/Avsha-AmazonEKS_EBS_CSI_Driver_Policy"
+#    role = aws_iam_role.avsha-eks_cluster.name
+#  }

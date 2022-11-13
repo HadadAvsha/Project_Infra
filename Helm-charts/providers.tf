@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-west-2"
-}
-
 terraform {
   required_providers {
     aws = {
@@ -13,15 +9,15 @@ terraform {
       version = "~> 2.0.1"
     }
 
-    # helm = {
-    #   source  = "hashicorp/helm"
-    #   version = "~> 2.0.1"
-    # }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "~> 2.0.1"
+    }
     
-    # argocd = {
-    #   source = "oboukili/argocd"
-    #   version = "0.4.7"
-    # }
+    argocd = {
+      source = "oboukili/argocd"
+      version = "0.4.7"
+    }
 
   }
   backend "s3" {

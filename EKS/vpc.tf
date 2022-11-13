@@ -9,10 +9,10 @@ resource "aws_vpc" "vpc" {
   #required for EKS
   enable_dns_hostnames = true
   enable_dns_support = true
-  enable_classiclink = false
+  # enable_classiclink = false
   assign_generated_ipv6_cidr_block = false
-  enable_classiclink_dns_support = false
-  # enable_classicenable_classiclink_dns_support = false
+  # enable_classiclink_dns_support = false
+  ## enable_classicenable_classiclink_dns_support = false
 }
 
 resource "aws_route_table" "public_rt" {
@@ -51,7 +51,3 @@ resource "aws_nat_gateway" "ngw" {
   subnet_id         = aws_subnet.public_subnets.id
 }
 
-output "vpc_id" {
-  value = aws_vpc.vpc.id
-  sensitive = false
-}
