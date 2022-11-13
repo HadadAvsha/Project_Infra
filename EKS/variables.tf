@@ -1,26 +1,9 @@
-# variable "azs" {
-#   type        = list(string)
-#   description = "Availability Zones"
-# }
-# variable "public_subnet_cidrs" {
-#   type        = list(string)
-#   description = "Public Subnet CIDR values"
-# }
-# variable "private_subnet_cidrs" {
-#   type        = list(string)
-#   description = "Private Subnet CIDR values"
-# }
-# variable "prefix" {}
-variable "azs" {
-  type        = list(string)
-  description = "Availability Zones"
-}
-# variable "public_subnet_cidrs" {
-#   type        = string
-#   description = "Public Subnet CIDR values"
-# }
-# variable "private_subnet_cidrs" {
-#   type        = string
-#   description = "Private Subnet CIDR values"
-# }
 variable "prefix" {}
+variable "public_subnets_ids" {
+  type        = list(string)
+}
+# variable "private_subnets_ids" {}
+variable "cluster_name" {}
+# variable "cluster_cert" {}
+variable "node_group" {}
+# variable "host" {}

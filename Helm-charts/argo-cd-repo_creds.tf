@@ -10,9 +10,9 @@
 #   repo = "git@private-git-repository.local:somerepo.git"
 # }
 
-resource "argocd_repository" "repo" {
-  repo            = "git@github.com:HadadAvsha/Project-Gitops.git"
-  username        = "AvshaH"
-  ssh_private_key = file("~/.ssh/lior") #"-----BEGIN OPENSSH PRIVATE KEY-----\nfoo\nbar\n-----END OPENSSH PRIVATE KEY-----"
-#   insecure        = true
-}
+# resource "argocd_repository" "repo" {
+#   repo            = "git@github.com:HadadAvsha/Project-Gitops.git"
+#   username        = "AvshaH"
+#   ssh_private_key = file("~/.ssh/lior") #"-----BEGIN OPENSSH PRIVATE KEY-----\nfoo\nbar\n-----END OPENSSH PRIVATE KEY-----"
+# #   insecure        = true
+# }
