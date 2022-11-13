@@ -18,11 +18,11 @@ provider "helm" {
 # }
 
 resource "helm_release" "argocd" {
-  depends_on = [kubernetes_namespace.argocd]
+  # depends_on = [kubernetes_namespace.argocd]
   name       = "argo-cd"
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argo-cd"
-  namespace  = "argo-cd"
+  # namespace  = "argo-cd"
   version    = "5.8.3"
 
   values = [
