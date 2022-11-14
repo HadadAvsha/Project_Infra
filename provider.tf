@@ -1,6 +1,3 @@
-provider "aws" {
-  region = "us-west-2"
-}
 
 terraform {
   required_providers {
@@ -30,4 +27,15 @@ terraform {
     key    = "tfstate"
   }
   # required_version = "~> 0.14"
+}
+
+provider "aws" {
+  region = "us-west-2"
+  default_tags {
+    tags = {
+      bootcamp   = "15"
+      created_by = "Avshalom"
+      managed_by = "terraform"
+    }
+  }
 }

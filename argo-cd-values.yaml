@@ -13,3 +13,5 @@ server:
     ingressClassName: "nginx"
     hosts:
       - "argocd-ui"
+# meta:
+#   helm.sh/release-namespace: "argo-cd"

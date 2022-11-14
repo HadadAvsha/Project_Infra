@@ -14,5 +14,21 @@
 #   repo            = "git@github.com:HadadAvsha/Project-Gitops.git"
 #   username        = "AvshaH"
 #   ssh_private_key = file("~/.ssh/lior") #"-----BEGIN OPENSSH PRIVATE KEY-----\nfoo\nbar\n-----END OPENSSH PRIVATE KEY-----"
-# #   insecure        = true
+#   insecure        = true
+# #   server_addr     = "argo-cd-argocd-repo-server"
 # }
+
+// Private repository credentials
+provider "argocd" {
+  server_addr = "argocd-ui:443"
+
+resource "argocd_repository_credentials" "private" {
+  url             = "git@github.com:HadadAvsha/Project-Gitops.git"
+  username        = "AvshaH"
+  ssh_private_key = file("~/.ssh/lior")#"-----BEGIN OPENSSH PRIVATE KEY-----\nfoo\nbar\n-----END OPENSSH PRIVATE KEY-----"
+}
+
+resource "argocd_repository" "private" {
+  repo = "git@github.com:HadadAvsha/Project-Gitops.git"
+}
+}

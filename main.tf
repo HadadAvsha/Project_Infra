@@ -18,7 +18,11 @@ module "Network" {
 #   private_subnets_id = aws_subnet.private_subnets[*].id
 }
 
-# module "Helm-charts" {
-#   source = "./Helm-charts"
-#   host = module.EKS.host
-# }
+module "Helm-charts" {
+  source = "./Helm-charts"
+  # host = module.EKS.cluster_details.host
+  endpoint  = module.EKS.cluster_details.endpoint
+  cluster_name = module.EKS.cluster_details.name
+  cluster_cert = module.EKS.cluster_details.certificate_authority[0].data
+  node_group = module.EKS.node_group
+}
