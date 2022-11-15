@@ -6,7 +6,7 @@ terraform {
     }
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "~> 2.0.1"
+      version = "~> 2.15.0"
     }
 
     helm = {
@@ -19,11 +19,6 @@ terraform {
       version = "0.4.7"
     }
 
-  }
-  backend "s3" {
-    region = "us-east-2"
-    bucket = "avsha-tf-state"
-    key    = "tfstate"
   }
   # required_version = "~> 0.14"
 }

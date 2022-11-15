@@ -13,15 +13,6 @@ provider "helm" {
   }
 }
 
-# provider "kubernetes" {
-#   config_context = "minikube"
-# }
-# resource "kubernetes_namespace" "example" {
-#   metadata {
-#     name = "my-first-namespace"
-#   }
-# }
-
 # resource "kubernetes_namespace" "argocd" {
 #   metadata {
 #     name = "argo-cd"
@@ -41,3 +32,47 @@ resource "helm_release" "argocd" {
     file("${path.module}/argo-cd-values.yaml")
   ]
 }
+
+
+
+# provider "kubernetes" {
+#   host                   = var.endpoint
+#   cluster_ca_certificate = base64decode(var.cluster_cert)
+#     exec {
+#       api_version = "client.authentication.k8s.io/v1alpha1"
+#       args        = ["eks", "get-token", "--cluster-name", var.cluster_name]#["eks", "get-token", "--cluster-name", module.EKS.cluster_name]
+#       command     = "aws"
+#     }
+# }
+
+# resource "kubernetes_namespace" "argocd" {
+#   metadata {
+#     name = "argo-cd"
+#   }
+# }
+
+
+# provider "helm" {
+#   kubernetes {
+#     host                   = var.endpoint
+#     cluster_ca_certificate = base64decode(var.cluster_cert)
+#     exec {
+#       api_version = "client.authentication.k8s.io/v1alpha1"
+#       args        = ["eks", "get-token", "--cluster-name", var.cluster_name]
+#       command     = "aws"
+#     }
+#   }
+# }
+
+# resource "helm_release" "argocd" {
+#   # depends_on = [kubernetes_namespace.argocd]
+#   name       = "argo-cd"
+#   repository = "https://argoproj.github.io/argo-helm"
+#   chart      = "argo-cd"
+#   namespace  = "argo-cd"
+#   version    = "5.8.3"
+#   create_namespace = true
+#   values = [
+#     file("${path.module}/argo-cd-values.yaml")
+#   ]
+# }

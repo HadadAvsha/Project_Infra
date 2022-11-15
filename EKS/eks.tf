@@ -48,19 +48,3 @@ resource "aws_eks_cluster" "eks" {
    aws_iam_role_policy_attachment.EC2InstanceProfileForImageBuilderECRContainerBuilds,
   ]
  }
-
-# resource "aws_eks_identity_provider_config" "example" {
-#   cluster_name = aws_eks_cluster.eks.name
-
-#   oidc {
-#     client_id                     = "your client_id"
-#     identity_provider_config_name = "example"
-#     issuer_url                    = "your issuer_url"
-#   }
-# }
-
-# resource "aws_iam_openid_connect_provider" "example" {
-#   client_id_list  = ["sts.amazonaws.com"]
-#   thumbprint_list = [data.tls_certificate.example.certificates[0].sha1_fingerprint]
-#   url             = aws_eks_cluster.example.identity[0].oidc[0].issuer
-# }
