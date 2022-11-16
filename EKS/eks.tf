@@ -4,7 +4,7 @@ resource "aws_eks_cluster" "eks" {
  version = "1.23"
 
  vpc_config {
-  subnet_ids = var.public_subnets_ids #module.Network.public_subnets_ids[*]    
+  subnet_ids = var.public_subnets_ids 
  }
 
  depends_on = [
@@ -14,7 +14,7 @@ resource "aws_eks_cluster" "eks" {
 
  resource "aws_eks_node_group" "worker-node-group" {
   cluster_name  = aws_eks_cluster.eks.name
-  node_group_name = var.node_group #"${var.prefix}-workernodes"
+  node_group_name = var.node_group 
   node_role_arn  = aws_iam_role.workernodes.arn
   subnet_ids = var.public_subnets_ids
     
