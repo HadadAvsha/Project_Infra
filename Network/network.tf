@@ -3,16 +3,9 @@ resource "aws_vpc" "vpc" {
   tags = {
     Name = "${var.prefix}-vpc"
   }
-  # sharing instances on host
-  # instance_tenancy = "default"
 
-  #required for EKS
-  # enable_dns_hostnames = true
-  # enable_dns_support = true
-  # enable_classiclink = false
   assign_generated_ipv6_cidr_block = false
-  # enable_classiclink_dns_support = false
-  ## enable_classicenable_classiclink_dns_support = false
+
 }
 
 resource "aws_route_table" "public_rt" {

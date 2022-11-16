@@ -4,14 +4,7 @@ resource "aws_eks_cluster" "eks" {
  version = "1.23"
 
  vpc_config {
-    # endpoint_public_access = true
-    # endpoint_private_access = false
-
-  subnet_ids = var.public_subnets_ids #module.Network.public_subnets_ids[*]
-    # var.private_subnets_ids
-    # aws_subnet.public_subnets.id,
-    # aws_subnet.private_subnets.id
-    
+  subnet_ids = var.public_subnets_ids #module.Network.public_subnets_ids[*]    
  }
 
  depends_on = [
@@ -25,9 +18,6 @@ resource "aws_eks_cluster" "eks" {
   node_role_arn  = aws_iam_role.workernodes.arn
   subnet_ids = var.public_subnets_ids
     
-    # var.private_subnets_ids
-    # aws_subnet.public_subnets.id,
-    # aws_subnet.private_subnets.id
     
   instance_types = ["t3.xlarge"]
   ami_type = "AL2_x86_64"
