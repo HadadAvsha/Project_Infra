@@ -9,7 +9,7 @@
 
 # resource "aws_subnet" "private_subnets" {
 #   # name              = "${var.prefix}-Private_SN"
-#   count             = length(var.private_subnet_cidrs) == 1 ? 1 : length(var.private_subnet_cidrs)
+#   count             = length(var.private_subnet_cidrs)# == 1 ? 1 : length(var.private_subnet_cidrs)
 #   vpc_id            = aws_vpc.vpc.id
 #   cidr_block        = element(var.private_subnet_cidrs, count.index) #"10.0.2.0/24"#var.private_subnet_cidrs
 #   availability_zone = element(var.azs, count.index)

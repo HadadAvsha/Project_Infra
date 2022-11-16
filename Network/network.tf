@@ -18,7 +18,7 @@ resource "aws_route_table" "public_rt" {
 }
 
 resource "aws_subnet" "public_subnets" {
-  count             = length(var.public_subnet_cidrs) == 1 ? 1 : length(var.public_subnet_cidrs)
+  count             = length(var.public_subnet_cidrs)# == 1 ? 1 : length(var.public_subnet_cidrs)
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = element(var.public_subnet_cidrs, count.index)
   availability_zone = element(var.azs, count.index)
